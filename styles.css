@@ -19,6 +19,8 @@ body{
 .jogo img {
     height: 100px;
     width: 100px;
+    position: absolute;
+ 
 }
 .carta {
     width: 117px;
@@ -29,4 +31,28 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    transition: transform .8s;   
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+}
+ 
+ .back{
+    opacity: 0;
+    transition: opacity .2s step-end;        
+}
+.front {
+    opacity: 0;
+    transition: opacity .2s step-end;    
+}
+
+.show {
+    opacity: 1; 
+    transition: opacity .2s step-end;    
+} 
+.flip {
+    transform: rotateY(180deg);  
+}
+.desflip {
+    transform: rotateY(0deg);
 }
