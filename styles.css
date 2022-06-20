@@ -2,6 +2,21 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #EEF9BF;
 }
+.relogio{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: crimson;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .topo {
     font-size: 56px;
     color: #75B79E;
@@ -57,6 +72,8 @@ body{
 .desflip {
     transform: rotateY(0deg);
 }
-.viradas{
-    
+@media (max-width: 614px){
+.topo{
+    font-size: 36px;
+    text-align: center;
 }

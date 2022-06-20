@@ -32,6 +32,12 @@ for (let i = 0; i < quant; i++) {
     document.querySelector(".jogo").innerHTML += `${selecionadas[i]}`
 }
 //Fim da distribuição
+    let cronometro=0
+    let stop=setInterval(relogio,1000)
+function relogio(){
+    cronometro++
+    document.querySelector(".relogio").innerHTML=`${cronometro}`
+}
 let lista=[];
 let jogadas=0
 let cartasviradas=0
@@ -52,7 +58,8 @@ function virarcarta (elemento) {
             } else
             cartasviradas=0
              if (lista.length==quant) { 
-                setTimeout(fimdejogo,1800)
+                setTimeout(fimdejogo,500);
+                clearInterval(stop);
             } 
     }
 }
@@ -63,8 +70,8 @@ function diferente (){
     lista[lista.length-1].querySelector(".front").classList.add("show");
     lista[lista.length-2].querySelector(".back").classList.remove("show");
     lista[lista.length-2].querySelector(".front").classList.add("show");
-    lista[lista.length-2].querySelector(".front").parentNode.classList.toggle("desflip");
-    lista[lista.length-1].querySelector(".back").parentNode.classList.toggle("desflip");
+    lista[lista.length-2].querySelector(".front").parentNode.classList.add("desflip");
+    lista[lista.length-1].querySelector(".back").parentNode.classList.add("desflip");
     lista[lista.length-2].querySelector(".front").parentNode.classList.remove("flip");
     lista[lista.length-1].querySelector(".back").parentNode.classList.remove("flip");
     lista.splice(lista.length-1,1);
@@ -73,5 +80,5 @@ function diferente (){
 }
 
 function fimdejogo (){
-    alert (`Parabéns, você ganhou em ${jogadas} jogadas! `)
-}
+    alert (`Parabéns, você ganhou em ${jogadas} jogadas e em ${document.querySelector(".relogio").innerHTML} segundos! `)
+    }
