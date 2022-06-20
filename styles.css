@@ -43,16 +43,20 @@ body{
 }
 .front {
     opacity: 0;
-    transition: opacity .2s step-end;    
+    transition: opacity .2s step-end;   
 }
 
 .show {
     opacity: 1; 
     transition: opacity .2s step-end;    
 } 
+
 .flip {
     transform: rotateY(180deg);  
 }
 .desflip {
     transform: rotateY(0deg);
+}
+.viradas{
+    
 }

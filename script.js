@@ -34,20 +34,29 @@ for (let i = 0; i < quant; i++) {
 //Fim da distribuição
 let lista=[];
 let jogadas=0
-function virarcarta (elemento) {    
+let cartasviradas=0
+function virarcarta (elemento) { 
+    if (cartasviradas!==2){     
+    let valor= elemento.classList.contains("flip")
+    if (!valor){
+    cartasviradas++
     lista.push(elemento);
-    elemento.classList.toggle("flip"); 
+    elemento.classList.add("flip"); 
     elemento.classList.remove("desflip");
     elemento.querySelector(".back").classList.add("show");
     elemento.querySelector(".front").classList.remove("show");       
     jogadas++
-        if (lista.length%2 ==0){
+        if (lista.length%2 ==0){            
         if (elemento.innerHTML!==lista[lista.length-2].innerHTML){
             setTimeout(diferente,1800)                             
-            } else if (lista.length==quant) { 
+            } else
+            cartasviradas=0
+             if (lista.length==quant) { 
                 setTimeout(fimdejogo,1800)
             } 
     }
+}
+}
 }
 function diferente (){
     lista[lista.length-1].querySelector(".back").classList.remove("show");
@@ -60,9 +69,9 @@ function diferente (){
     lista[lista.length-1].querySelector(".back").parentNode.classList.remove("flip");
     lista.splice(lista.length-1,1);
     lista.splice(lista.length-1,1);
+    cartasviradas=0
 }
 
 function fimdejogo (){
     alert (`Parabéns, você ganhou em ${jogadas} jogadas! `)
 }
-
